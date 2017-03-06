@@ -17,10 +17,13 @@ socket.on('listening', () => {
 
 const data = Buffer.from([0x00])
 const {argv} = process
+let port = 7483
 let addr
 for (let i = 2; i < argv.length; i++) {
   if ((argv[i] === '--addr') && (argv[i + 1] !== undefined)) {
     addr = argv[i + 1]
+  } else if ((argv[i] === '--port') && (argv[i + 1] !== undefined)) {
+    port = argv[i + 1]
   } else if ((argv[i] === '--send') && (argv[i + 1] !== undefined)) {
     setInterval(() => {
       socket.send(data, 7483, argv[i + 1], () => {
