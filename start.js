@@ -39,4 +39,4 @@ for (let i = 2; i < argv.length; i++) {
   }
 }
 
-socket.bind(7483, addr)
+socket.bind(port, addr)
