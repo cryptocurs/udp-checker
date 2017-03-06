@@ -27,6 +27,12 @@ for (let i = 2; i < argv.length; i++) {
         console.log('SENT', data.toString('hex'))
       })
     }, 1000)
+  } else if ((argv[i] === '--send-port') && (argv[i + 1] !== undefined) && (argv[i + 2] !== undefined)) {
+    setInterval(() => {
+      socket.send(data, argv[i + 1], argv[i + 2], () => {
+        console.log('SENT', data.toString('hex'))
+      })
+    }, 1000)
   }
 }
 
